@@ -90,6 +90,8 @@ def file_output():
 
     except FileExistsError:
         print("this file is allready exist! press ESC key and try save again!")
+    except:
+        print("Manipulate is not defined")
         
           
         #f.writelines(div_s)
