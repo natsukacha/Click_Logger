@@ -71,28 +71,35 @@ def average():
 #csvファイル出力
 def file_output():
     print("save ?  Type & Press Enter key")
-    line=input()
-    try:
-        with open(line + ".csv", 'x',newline='') as f:
-            del div_s[0]
-            del epoc[-1]
-            writer = csv.writer(f)
-            writer.writerows([epoc])
-            writer.writerows([div_s])
-            ave=str(average())
-            f.write(ave)
-        print(line+ ".csv is saved.If you want to finish, press close button") 
+    state_enter = win32api.GetKeyState(0x0D)
+    while True:
+        line=input() 
+        if win32api.GetAsyncKeyState(0x02) != 0:
+            pass           
+        elif win32api.GetAsyncKeyState(0x0D) != 0:
+            try:
+                with open(line + ".csv", 'x',newline='') as f:                
+                    del div_s[0]
+                    del epoc[-1]
+                    writer = csv.writer(f)
+                    writer.writerows([epoc])
+                    writer.writerows([div_s])
+                    ave=str(average())
+                    f.write(ave)
+                    print(line+ ".csv is saved.")
+                    print("You can continue Right Click.")
+                    print("If you want to finish, press close button")
+                    break
         
-        #10個に連続適用するため、変数を初期化
-        div_s.clear()
-        sig=0
-        epoc.clear()
+                #10個に連続適用するため、変数を初期化
+                div_s.clear()
+                sig=0
+                epoc.clear()
+            except FileExistsError:
+                print("this file is allready exist! rename and try save again!")    
+        else:
+            print("This maniplate is not define! One possibility is same name file exist.")
 
-    except FileExistsError:
-        print("this file is allready exist! press ESC key and try save again!")
-    except:
-        print("Manipulate is not defined")
-        
           
         #f.writelines(div_s)
 ################################################################    
@@ -126,6 +133,8 @@ def loop():
                 file_output()
                 break
     time.sleep(0.2)
+
+
 
 def measur():
     while True:
