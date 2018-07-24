@@ -11,6 +11,7 @@ please write new file name.
 when printed 「click log start!」
 this code log pixel distant of right click point and right click point.
 press ESC key change line of csv file.
+*it is about Distant-8,Clcik_Logger.py is bit diffrent
 
 Caution (留意事項)
 It log only pixels distants.
