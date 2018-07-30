@@ -70,7 +70,7 @@ def average():
 
 #csvファイル出力
 def file_output():
-    print("save ?  Type & Press Enter key")
+    print("save ?  Type & Press Enter key.")
     state_enter = win32api.GetKeyState(0x0D)
     while True:
         line=input() 
@@ -98,7 +98,7 @@ def file_output():
             except FileExistsError:
                 print("this file is allready exist! rename and try save again!")    
         else:
-            print("This maniplate is not define! One possibility is same name file exist.")
+            print("This maniplate is not define! One possibility is same name file exist.\n")
 
           
         #f.writelines(div_s)
@@ -140,5 +140,7 @@ def measur():
     while True:
         loop()
         
-print("click start position(Right click)")
+print("Do`nt press Right click on this winodw")
+time.sleep(0.3)
+print("Click start position(Right click)")
 measur()        
