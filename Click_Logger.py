@@ -140,7 +140,7 @@ def measur():
     while True:
         loop()
         
-print("Do`nt press Right click on this winodw")
+print("Don`t press Right click on this window")
 time.sleep(0.3)
 print("Click start position(Right click)")
 measur()        
